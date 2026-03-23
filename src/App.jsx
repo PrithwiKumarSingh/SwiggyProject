@@ -1,8 +1,8 @@
 import './App.css'
-import Resturant from './components/Resturant'
-import Home from './components/Home'
+import Resturant from './pages/Resturant'
+import Home from './pages/Home'
 import { BrowserRouter, Routes, Route } from "react-router"
-import ResturantMenu from "./components/ResturantMenu"
+import ResturantMenu from './pages/ResturantMenu'
 import SearchCard from './components/SearchCard'
 
 

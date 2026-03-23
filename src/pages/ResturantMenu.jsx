@@ -1,4 +1,4 @@
-import MenuCard from './MenuCard'
+import MenuCard from '../components/MenuCard'
 import { Link, useParams } from 'react-router'
 import { useState, useEffect } from 'react';
 

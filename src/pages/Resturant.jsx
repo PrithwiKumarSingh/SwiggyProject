@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import RestCard from './RestCard';
-import FamousFood from './FamousFood';
-import TopRest from './TopRest';
+import RestCard from '../components/RestCard';
+import FamousFood from '../components/FamousFood';
+import TopRest from '../components/TopRest';
 import { IoIosArrowDown } from "react-icons/io";
+import Shimmer from '../components/Shimmer';
+import NavBar from '../components/NavBar';
 
 const Resturant = () => {
   const [restData, setRestData] = useState([]);
@@ -29,12 +31,16 @@ const Resturant = () => {
   }, []);
   
   if(restData.length == 0)
-   return <div className='flex items-center justify-center text-4xl h-screen'> <h1>Data is loading..........</h1></div>
+   return <Shimmer/>
 
         
         return(
+          <div>
+            <NavBar/>
+            
+
           <div className='container mx-auto'>
-              <h2 className='mt-30 text-xl font-extrabold '>What's on your mind?</h2>
+              <h2 className='mt-5 text-xl font-extrabold '>What's on your mind?</h2>
             <div className=' flex flex-nowrap gap-5 overflow-x-scroll'>
               {
                 famousFood.map((famousFood)=> <FamousFood key={famousFood.id}  famousFood={famousFood}></FamousFood>)
@@ -75,6 +81,7 @@ const Resturant = () => {
 
 
 
+          </div>
           </div>
         )
     }
