@@ -5,6 +5,7 @@ import TopRest from '../components/TopRest';
 import { IoIosArrowDown } from "react-icons/io";
 import Shimmer from '../components/Shimmer';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 const Resturant = () => {
   const [restData, setRestData] = useState([]);
@@ -39,7 +40,7 @@ const Resturant = () => {
             <NavBar/>
             
 
-          <div className='container mx-auto'>
+          <div className='container mx-auto mb-30'>
               <h2 className='mt-5 text-xl font-extrabold '>What's on your mind?</h2>
             <div className=' flex flex-nowrap gap-5 overflow-x-scroll'>
               {
@@ -82,6 +83,7 @@ const Resturant = () => {
 
 
           </div>
+          <Footer></Footer>
           </div>
         )
     }
