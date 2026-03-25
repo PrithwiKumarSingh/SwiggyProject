@@ -42,7 +42,7 @@ const Resturant = () => {
 
           <div className='container mx-auto mb-30'>
               <h2 className='mt-5 text-xl font-extrabold '>What's on your mind?</h2>
-            <div className=' flex flex-nowrap gap-5 overflow-x-scroll'>
+            <div className=' flex flex-nowrap gap-5 overflow-x-scroll scrollbar-hide'>
               {
                 famousFood.map((famousFood)=> <FamousFood key={famousFood.id}  famousFood={famousFood}></FamousFood>)
               }
@@ -52,7 +52,7 @@ const Resturant = () => {
             <div className='h-[2px] bg-gray-200 w-full mt-10'></div>
 
               <h2 className=' text-xl font-extrabold mt-10 px-2 '>Top restaurant chains in Gurgaon</h2>
-              <div className='flex flex-nowrap gap-5 mt-5 px-2 overflow-x-scroll'>
+              <div className='flex flex-nowrap gap-5 mt-5 px-2 overflow-x-scroll scrollbar-hide'>
                 {
                     topRest.map((topRest)=> <TopRest key={topRest?.info?.id} topRest={topRest} ></TopRest>)
                 }

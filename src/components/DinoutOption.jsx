@@ -6,7 +6,7 @@ const DinoutOption = () => {
   return (
     <div className='w-[80%] container mx-auto  mt-20 '>
       <h2 className='font-bold text-2xl mb-10'>Discover best restaurants on Dineout</h2>
-      <div className='flex flex-none gap-5 overflow-x-auto'>
+      <div className='flex flex-none gap-5 overflow-x-auto scrollbar-hide'>
           {
             DineoutRestaurants.map((DinoutData)=> <DinoutCard key={DinoutData?.info?.id} DinoutData={DinoutData}></DinoutCard>)
           }
