@@ -11,7 +11,6 @@ const Resturant = () => {
   const [restData, setRestData] = useState([]);
   const [famousFood, setFamousFood] = useState([]);
   const [topRest, setTopRest] = useState([]);
-  console.log(famousFood);
 
   useEffect(() => {
     const fetchData = async () => {

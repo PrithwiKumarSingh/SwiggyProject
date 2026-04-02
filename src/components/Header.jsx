@@ -22,7 +22,7 @@ const Header = () => {
             <img className='h-110 w-60 absolute right-0' src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png" alt="" />
             <div className='max-w-[60%] container mx-auto text-5xl text-center font-extrabold text-white'>Order food & groceries. Discover <br /> best restaurants. Swiggy it!</div>
             <div className='mt-8 max-w-[50%] container mx-auto flex gap-2'>
-                <input className='bg-white text-xl px-4 py-4 max-w-[40%] outline-none container mx-auto rounded-2xl' type="text" value={"Delhi, India"}/>
+                <input className='bg-white text-xl px-4 py-4 max-w-[40%] outline-none container mx-auto rounded-2xl' type="text" defaultValue={"Delhi, India"}/>
                 <input className='bg-white text-xl px-4 py-4 max-w-[55%] outline-none container mx-auto rounded-2xl' type="text" placeholder='Search for restaurant, item or more' />
             </div>
         </div>

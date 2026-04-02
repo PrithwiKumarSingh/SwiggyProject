@@ -3,6 +3,7 @@ import { Link,useParams } from 'react-router'
 import { useState, useEffect } from 'react'
 import RestInfo from './RestInfo'
 import MenuCard from './MenuCard'
+import NavBar from './NavBar'
 const SearchCard = (e) => {
     const [restData, setRestData] = useState([]); 
     const [search, setSearch] = useState("");
@@ -46,6 +47,8 @@ const SearchCard = (e) => {
 
 
   return (
+    <div>
+        <NavBar/>
     <div className='w-[60%] mx-auto mt-20 '>
         <div className='relative'>
         <input value={search} onChange={(e)=> setSearch(e.target.value)} className='w-full outline-none border-b text-2xl py-4 pl-12' placeholder='Search Here '></input>
@@ -60,6 +63,7 @@ const SearchCard = (e) => {
                 filteredItems.map((menuItem,index)=><RestInfo key={index} restData={menuItem?.card?.info}></RestInfo>)
                 }
             </div>
+    </div>
     </div>
   )
 }

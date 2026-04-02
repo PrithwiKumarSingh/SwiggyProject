@@ -1,5 +1,26 @@
+import { useState } from "react";
+import { addItems, IncrementItems, DecrementItems } from "../Stores/CartSlicer";
+import { useDispatch } from "react-redux";
+
 
 const RestInfo = ({restData}) => {
+    const [count, setCount] = useState(0);
+    const dispatch = useDispatch();
+
+    function handleAddItems(){
+        setCount(1);
+        dispatch(addItems(restData));
+    }
+
+    function handleIncrementItems(){
+        setCount(count + 1);    
+        dispatch(IncrementItems(restData));
+    }
+    function handleDecrementItems(){
+        setCount(count-1);
+        dispatch(DecrementItems(restData));
+    }  
+
   return (
     <div>
     <div className="flex w-full justify-between mt-8">
@@ -22,7 +43,20 @@ const RestInfo = ({restData}) => {
         </div>
         <div className="w-[20%] h-40 flex items-center  relative"> 
                 <img className="w-full h-36 object-cover rounded-2xl " src={"https://media-assets.swiggy.com/swiggy/image/upload/"+restData?.imageId} alt="" />
-                <button className=" transform transition cursor-pointer duration-200 hover:bg-gray-200 mt-10 absolute bottom-0 rounded-xl shadow-sm text-green-600 bg-white left-17 py-2 px-8">ADD</button>
+
+                <div>
+                    {
+                    (count==0) ? (<button className=" transform transition cursor-pointer duration-200 hover:bg-gray-200 mt-10 absolute bottom-0 rounded-xl shadow-sm text-green-600 bg-white font-bold md:left-15 py-2 px-10" onClick={()=>handleAddItems()}>Add</button>)
+                     : (
+                        <div className="transform transition cursor-pointer duration-200 hover:bg-gray-200 mt-10 absolute bottom-0 rounded-xl shadow-sm text-green-600 bg-white left-15 py-1 px-2 flex items-center font-bold text-xl">
+                            <button className="font-bold text-2xl w-8 cursor-pointer" onClick={()=> handleDecrementItems()}>-</button>
+                            <span className="text-2xl w-8 text-center">{count}</span>
+                            <button className=" w-8 text-2xl cursor-pointer" onClick={()=> handleIncrementItems()}>+</button>
+                        </div>
+                     )
+                    }
+                </div>
+                
             </div>
     </div>
         <hr className="mt-3 mb-6 "></hr> 

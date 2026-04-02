@@ -6,9 +6,11 @@ import { HiOutlinePercentBadge } from "react-icons/hi2";
 import { IoHelpBuoyOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { IoCartOutline } from "react-icons/io5";
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
-  return (
+    const counter = useSelector(state => state.cartslice.count);
+  return ( 
     <div className='w-full bg-white shadow-md'>
         <div className='w-300 py-5 mx-auto flex justify-between items-center'>
             <div className='flex items-center'>
@@ -39,8 +41,13 @@ const NavBar = () => {
                     <CgProfile size={22}/>
                   <span>  Sign In</span>
                     </a>
-                <a className='flex items-center gap-2 hover:text-[#FF5200] transition' target='_blank' href="https://www.swiggy.com/checkout">
-                    <IoCartOutline size={22}></IoCartOutline>
+                <a className='flex items-center gap-1 hover:text-[#FF5200] transition' target='_blank' href="https://www.swiggy.com/checkout">
+                {
+                    counter > 0 ? <div className='w-4 h-4 flex justify-center items-center rounded-t-sm text-xs font-bold text-white p-2.5 bg-[#1BA672] '>{counter}</div>
+                    : <div className='w-4 h-4 flex justify-center items-center rounded-t-sm text-xs font-bold text-black border '>{counter}</div>
+                }
+                
+                
                    <span>Cart</span> 
                 </a>
 

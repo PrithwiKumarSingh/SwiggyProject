@@ -1,6 +1,7 @@
 import MenuCard from '../components/MenuCard'
 import { Link, useParams } from 'react-router'
 import { useState, useEffect } from 'react';
+import NavBar from '../components/NavBar';
 
 
 const ResturantMenu = () => {
@@ -8,7 +9,6 @@ const ResturantMenu = () => {
       const[selected, setSelected] = useState(null);
 
       let {id} = useParams();
-      console.log(id);
 
       useEffect(() => {
         const fetchData = async () => {
@@ -32,11 +32,13 @@ const ResturantMenu = () => {
     
 
   return (
+    <div>
+      <NavBar/>
       <div className='w-[60%] mx-auto'>
 
         <Link to={`/city/delhi/${id}/search`}>
         <div className='relative'>
-          <p className='py-4 w-full text-2xl font-normal rounded-4xl text-center bg-gray-300 mt-20 mb-10' >Search Here</p>
+          <p className='py-4 w-full text-2xl font-normal rounded-2xl text-center bg-gray-300 mt-20 mb-10' >Search Here</p>
           <img className='absolute right-9 bottom-5 h-6' src="https://www.svgrepo.com/show/532555/search.svg" alt="" />
         </div>
         </Link>
@@ -48,6 +50,7 @@ const ResturantMenu = () => {
         {
           restData.map((menuItem)=><MenuCard key={menuItem?.card?.card?.title} foodselect={selected} menuItem={menuItem?.card?.card}></MenuCard>)
         }
+    </div>
     </div>
     </div>
   )

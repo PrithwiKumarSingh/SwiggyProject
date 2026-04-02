@@ -4,13 +4,15 @@ import Home from './pages/Home'
 import { BrowserRouter, Routes, Route } from "react-router"
 import ResturantMenu from './pages/ResturantMenu'
 import SearchCard from './components/SearchCard'
-
+import {store} from "./Stores/stores"
+import { Provider } from 'react-redux'
 
 
 function App() {
 
 
   return (
+    <Provider store={store}>
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home></Home>} ></Route>
@@ -20,6 +22,7 @@ function App() {
     </Routes>
 
     </BrowserRouter>
+    </Provider>
   )
 }
 
