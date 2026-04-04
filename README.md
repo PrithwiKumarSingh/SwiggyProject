@@ -5,7 +5,7 @@
 ---
 
 ## 🔥 Live Demo
-👉 Coming Soon
+👉 https://swiggy-project-three.vercel.app/
 
 ---
 
