@@ -1,23 +1,24 @@
 import { useState } from "react";
 import { addItems, IncrementItems, DecrementItems } from "../Stores/CartSlicer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const RestInfo = ({restData}) => {
-    const [count, setCount] = useState(0);
     const dispatch = useDispatch();
 
+    const items = useSelector(state => state.cartslice.items);
+
+    const element = items.find(item => item.id === restData.id);
+    const count = element ? element.quantity: 0;
+
     function handleAddItems(){
-        setCount(1);
         dispatch(addItems(restData));
     }
 
-    function handleIncrementItems(){
-        setCount(count + 1);    
+    function handleIncrementItems(){   
         dispatch(IncrementItems(restData));
     }
     function handleDecrementItems(){
-        setCount(count-1);
         dispatch(DecrementItems(restData));
     }  
 
@@ -26,7 +27,7 @@ const RestInfo = ({restData}) => {
     <div className="flex w-full justify-between mt-8">
         <div className="w-[70%]">
             <p className="text-2xl mb-1 font-semibold  text-gray-700" >{restData?.name}</p>
-            <p className="text-xl font-semibold mb-2 ">{"₹"+("defaultPrice"+ restData ? restData?.defaultPrice/100 : restData?.price/100)}</p>
+            <p className="text-xl font-semibold mb-2 ">{"₹"+( restData.defaultPrice ? restData?.defaultPrice/100 : restData?.price/100)}</p>
             <div className="flex gap-1">
                    <svg
                         xmlns="http://www.w3.org/2000/svg"

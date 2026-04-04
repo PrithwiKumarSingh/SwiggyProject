@@ -6,30 +6,21 @@ import { IoIosArrowDown } from "react-icons/io";
 import Shimmer from '../components/Shimmer';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import { useSelector,useDispatch } from 'react-redux';
+import { fetchRestaurants } from '../Stores/restaurantSlice';
 
 const Resturant = () => {
-  const [restData, setRestData] = useState([]);
-  const [famousFood, setFamousFood] = useState([]);
-  const [topRest, setTopRest] = useState([]);
+ const dispatch = useDispatch();
+
+  const { famousFood, topRest, restData, status } = useSelector((state) => state.restaurant);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const proxy = "https://cors-anywhere.herokuapp.com/";
-        const api =  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4640087729816&lng=77.02618695368315&is-seo-homepage-enabled=true"
-        const response = await fetch(proxy + api);
-        const data = await response.json();
-        setFamousFood(data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
-        setTopRest(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setRestData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-      }
-    };
+    if (status === "idle") {
+      dispatch(fetchRestaurants());
+    }
+  }, [status, dispatch]);
 
-    fetchData();
-  }, []);
-  
+
   if(restData.length == 0)
    return <Shimmer/>
 

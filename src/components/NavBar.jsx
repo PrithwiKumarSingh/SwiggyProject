@@ -7,6 +7,7 @@ import { IoHelpBuoyOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { IoCartOutline } from "react-icons/io5";
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router';
 
 const NavBar = () => {
     const counter = useSelector(state => state.cartslice.count);
@@ -41,15 +42,18 @@ const NavBar = () => {
                     <CgProfile size={22}/>
                   <span>  Sign In</span>
                     </a>
-                <a className='flex items-center gap-1 hover:text-[#FF5200] transition' target='_blank' href="https://www.swiggy.com/checkout">
+
+                    <Link to={"/checkout"} >
+                <div className='flex items-center gap-1 hover:text-[#FF5200] transition'>
                 {
-                    counter > 0 ? <div className='w-4 h-4 flex justify-center items-center rounded-t-sm text-xs font-bold text-white p-2.5 bg-[#1BA672] '>{counter}</div>
-                    : <div className='w-4 h-4 flex justify-center items-center rounded-t-sm text-xs font-bold text-black border '>{counter}</div>
+                    counter > 0 ? <div className='w-4 h-4 flex justify-center items-center rounded-t-sm text-xs font-bold text-white p-2.5 bg-[#1BA672] hover:bg-[#ff5200] '>{counter}</div>
+                    : <div className='w-4 h-4 flex justify-center items-center rounded-t-sm text-xs font-bold text-black border  '>{counter}</div>
                 }
                 
                 
                    <span>Cart</span> 
-                </a>
+                </div>
+                </Link>
 
             </div>
         </div>

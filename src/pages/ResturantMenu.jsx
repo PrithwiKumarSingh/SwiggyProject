@@ -2,34 +2,26 @@ import MenuCard from '../components/MenuCard'
 import { Link, useParams } from 'react-router'
 import { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
+import { useDispatch, useSelector } from 'react-redux';
+import {fetchMenu} from "../Stores/restaurantSlice"
 
 
 const ResturantMenu = () => {
-      const [restData, setRestData] = useState([]);
       const[selected, setSelected] = useState(null);
 
-      let {id} = useParams();
+      const { id } = useParams();
+      const dispatch = useDispatch();
+
+      const menu = useSelector((state) => state.restaurant.menuById[id]) || [];
+      // const status = useSelector((state) => state.restaurant.menuStatus[id]);
 
       useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const proxy = `https://cors-anywhere.herokuapp.com/`;
-            const api = `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=${id}`
-            const response = await fetch(proxy + api);
-            const data = await response.json(); 
-            const tempData = data?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-            const filterData = tempData.filter((item)=> 'title' in item?.card?.card);
-            setRestData(filterData);
-          } catch (err) {
-            console.error("Error fetching data:", err);
-          }
-        };
-    
-        fetchData();
-      }, []);
-
-   
-    
+        if (!menu.length) {
+          dispatch(fetchMenu(id));
+        }
+      }, [id, menu.length, dispatch]);
+      
+        
 
   return (
     <div>
@@ -48,7 +40,7 @@ const ResturantMenu = () => {
         </div>
     <div >
         {
-          restData.map((menuItem)=><MenuCard key={menuItem?.card?.card?.title} foodselect={selected} menuItem={menuItem?.card?.card}></MenuCard>)
+          menu.map((menuItem)=><MenuCard key={menuItem?.card?.card?.title} foodselect={selected} menuItem={menuItem?.card?.card}></MenuCard>)
         }
     </div>
     </div>
