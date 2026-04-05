@@ -12,9 +12,15 @@ const Footer = () => {
 
 
   return (
-    <div className='w-full bg-gray-100 py-10'>
-        <div className='container mx-auto grid grid-cols-5 mb-10 px-25'>
-            <div className=''>
+    <div  className=' w-full bg-gray-100 py-10'>
+        <div className='w-[90%] mx-auto md:hidden mb-4'>
+            <div  className=''>
+                <img className='mb-2 h-8' src="https://media-assets.swiggy.com/portal/testing/seo-home/Group.svg" alt="" />
+                <h2 className=' font-medium text-gray-600'>&#169; 2025 Swiggy Limited</h2>
+            </div>
+        </div>
+        <div className=' w-[90%] md:w-[80%] mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-0 mb-10 mb:px-25'>
+            <div className='hidden md:block'>
                 <img className='mb-2' src="https://media-assets.swiggy.com/portal/testing/seo-home/Group.svg" alt="" />
                 <h2 className='text-xl font-medium text-gray-600'>&#169; 2025 Swiggy Limited</h2>
             </div>
@@ -83,18 +89,17 @@ const Footer = () => {
                 </div>
             </div>
 
-            
-
-
-            
-
-
         </div>
-        <div className='h-0.5 w-full bg-gray-400 my-8'></div>
-        <div className='flex ml-100 gap-6 items-center my-4'>
-                <h2 className='text-2xl font-bold text-gray-700 '>For better experience, download the Swiggy app now</h2>
-                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-AppStore_lg30tv" alt="" />
-                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-GooglePlay_1_zixjxl" alt="" />
+
+        <div className='h-0.5 w-full bg-gray-400 md:my-8'></div>
+
+
+        <div className=' md:flex md:ml-100 w-fit gap-6 items-center my-4'>
+                <h2 className='text-sm md:text-2xl ml-8 font-bold text-gray-700 '>For better experience, download the Swiggy app now</h2>
+                <div className='flex ml-10 md:ml-0 mt-5 md:mt-0 gap-2'>
+                <img className='w-40' src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-AppStore_lg30tv" alt="" />
+                <img className='w-40' src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_200,h_65/icon-GooglePlay_1_zixjxl" alt="" />
+                </div>
             </div>
 
     </div>
