@@ -14,9 +14,9 @@ const Header = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOqDecYNB4XzOS5TFHmIBXBgf_DMPzKttsmw&s"
             alt="logo"
           />
-          <p className="text-white leading-none text-xs font-bold">Open in app for better offers & a smoother experience!</p>
+          <p className="text-white leading-none text-xs font-bold">Open in desktop and allow cors origin using cors-anywhere.herokuapp.com proxy</p>
           
-          <a href="https://www.swiggy.com/auth" className="px-3 py-2.5 rounded-3xl text-white bg-[#ff5200] font-medium text-sm leading-none whitespace-nowrap">OPEN APP </a>
+          <a href="https://cors-anywhere.herokuapp.com/corsdemo" className="px-3 py-2.5 rounded-3xl text-white bg-[#ff5200] font-medium text-sm leading-none whitespace-nowrap">OPEN APP </a>
         </div>
 
       {/* NAVBAR */}
