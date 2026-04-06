@@ -11,14 +11,12 @@ const Checkout = () => {
     const totalPrice = items.reduce((sum, item) => {
       return sum + (item.defaultPrice ? item?.defaultPrice/100 : item.price/100 || 0);
     }, 0);
-    console.log(totalPrice);
+
     const [price, setPrice] = useState(totalPrice);
 
     const dispatch = useDispatch();
     const counter = useSelector(state => state.cartslice.count);
 
-    // const element = items.find(item => item.id === items.id);
-    // const count = element ? element.quantity: 0;
 
     function handleIncrementItems(item){   
         dispatch(IncrementItems(item));
@@ -29,12 +27,14 @@ const Checkout = () => {
         setPrice(price - (item.defaultPrice ? item.defaultPrice/100 : item.price/100));
     }  
     
-    console.log(items);
   return (
     <div className='w-full h-screen'>
       <NavBar></NavBar>
 
-    <div className='hidden mt-5'>
+    {
+      
+    totalPrice == 0 ? 
+    (<div className=' mt-5'>
         <div className='w-[80%] mx-auto h-fit flex flex-col items-center '>
           <img className='w-100 h-70 mt-35 ' src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" alt="" />
           <div className='text-center'>
@@ -45,10 +45,10 @@ const Checkout = () => {
             </Link>
           </div>
         </div>
-    </div>
+    </div>)
 
 
-    <div className='w-[80%] mx-auto my-10 '>
+    : (<div className='w-[80%] mx-auto my-10 '>
 
       <h2 className='text-3xl font-extrabold'>Your Cart</h2>
 
@@ -59,12 +59,7 @@ const Checkout = () => {
 
         
         <div className='h-140 overflow-y-scroll pb-5 px-6 scrollbar-hide'>
-          { totalPrice==0 ?
-          (<div className='flex items-center justify-center w-full h-130'>
-            <Link to={"/restaurant"}>
-            <button className=' hover:scale-105 transition duration-200 ease-in-out bg-[#ff5200] font-semibold text-base px-4 my-2 py-3 rounded-xl text-white cursor-pointer'>Add Other Food</button>
-            </Link>
-        </div>) : 
+          { 
 
             items.map((item)=>{
               return(
@@ -128,12 +123,12 @@ const Checkout = () => {
       </div>
 
 
-    </div>
+    </div>)
 
 
 
 
-
+        }
     </div>
   )
 }
