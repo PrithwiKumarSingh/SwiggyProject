@@ -4,7 +4,8 @@ export const fetchRestaurants = createAsyncThunk(
   "restaurant/fetchRestaurants",
   async () => {
     const proxy = "https://cors-anywhere.herokuapp.com/";
-    const api ="https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4640087729816&lng=77.02618695368315&is-seo-homepage-enabled=true";
+    // const api ="https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4640087729816&lng=77.02618695368315&is-seo-homepage-enabled=true";
+    const api = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4640087729816&lng=77.02618695368315&is-seo-homepage-enabled=true";
     const response = await fetch(proxy + api);
     const data = await response.json();
 
