@@ -129,21 +129,21 @@ const Header = () => {
           />
         </Link>
         <div className="flex">
-        <a href="https://www.swiggy.com/instamart">
+        <Link to="/restaurant">
           <img
             src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU.png"
             className="rounded-xl"
             alt=""
           />
-        </a>
+        </Link>
 
-        <a href="https://www.swiggy.com/dineout">
+        <Link to="/restaurant">
           <img
             src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU.png"
             className="rounded-xl"
             alt=""
           />
-        </a>
+        </Link>
         </div>
       </div>
 
